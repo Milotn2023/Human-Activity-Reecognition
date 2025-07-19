@@ -3,6 +3,31 @@
 ## Project Overview
 This project focuses on Human Activity Recognition (HAR) using the SisFall dataset. The dataset contains sensor data collected from accelerometers and gyroscopes to identify various human activities and falls. The goal is to develop models and systems that can accurately recognize and classify human activities, especially falls, which are critical for health monitoring and elderly care.
 
+## Implementation
+The project includes a comprehensive Python implementation (`Fall_Detection_System_v2_(1).ipynb`) that demonstrates:
+
+### Machine Learning Models
+- **Traditional Models**: Logistic Regression, Random Forest, K-Nearest Neighbors, Decision Tree
+- **Deep Learning Models**: 
+  - CNN (Convolutional Neural Network) + MLP
+  - LSTM (Long Short-Term Memory) + MLP
+  - MLP (Multi-Layer Perceptron)
+  - PCNN-Transformer (Parallel CNN with Transformer)
+  - Autoencoder
+
+### Key Features
+- **Data Preprocessing**: Windowing, normalization, feature extraction
+- **Class Balancing**: Handles imbalanced dataset with class weights
+- **Model Evaluation**: Comprehensive metrics including accuracy, precision, recall, F1-score, ROC curves
+- **Visualization**: Learning curves, confusion matrices, performance plots
+- **Hyperparameter Tuning**: Grid search for optimal parameters
+
+### Technical Specifications
+- **Window Size**: 200 samples per window
+- **Sampling Rate**: 200 Hz
+- **Input Features**: 9 sensor channels (3 accelerometers + 3 gyroscopes from 3 sensors)
+- **Output**: Binary classification (Fall/No Fall)
+
 ## Dataset Description: SisFall
 The SisFall dataset was created by A. Sucerquia, J.D. López, and J.F. Vargas-Bonilla from the Faculty of Engineering, Universidad de Antioquia (UDEA), Colombia.
 
@@ -68,8 +93,47 @@ The SisFall dataset was created by A. Sucerquia, J.D. López, and J.F. Vargas-Bo
 - `content/gdrive/MyDrive/Datasets/SisFall_enhanced/`: Enhanced version of the SisFall dataset.
 
 ## Usage
-- Use the dataset files for training and testing Human Activity Recognition models.
-- Data files are text files with sensor readings for each activity trial.
+
+### Running the Code
+1. **Setup Environment**: The notebook is designed to run on Google Colab
+2. **Mount Google Drive**: Access to dataset files stored in Google Drive
+3. **Install Dependencies**: Required packages are automatically installed
+4. **Data Processing**: Automated preprocessing pipeline handles data loading and preparation
+5. **Model Training**: Choose from multiple model architectures
+6. **Evaluation**: Comprehensive performance analysis with visualizations
+
+### Dataset Structure
+- Use the dataset files for training and testing Human Activity Recognition models
+- Data files are text files with sensor readings for each activity trial
+- Each file contains 9 columns representing sensor data from 3 different sensors
+
+### Model Performance
+The implementation includes evaluation of multiple models with metrics such as:
+- Accuracy, Precision, Recall, F1-Score
+- ROC curves and AUC scores
+- Confusion matrices
+- Learning curves for deep learning models
+
+## Files Structure
+```
+Human-Activity-Recognition/
+├── README.md                           # Project documentation
+├── Fall_Detection_System_v2_(1).ipynb  # Main implementation notebook
+├── SisFall_dataset/                    # Original dataset
+│   ├── SA01/ to SA23/                  # Adult subjects (19-30 years)
+│   └── SE01/ to SE15/                  # Elderly subjects (60-75 years)
+└── SisFall_enhanced/                   # Enhanced dataset version
+    ├── SA01/ to SA23/                  # Adult subjects with enhanced labels
+    └── SE01/ to SE15/                  # Elderly subjects with enhanced labels
+```
+
+## Requirements
+- Python 3.7+
+- TensorFlow/Keras
+- Scikit-learn
+- Pandas, NumPy
+- Matplotlib, Seaborn
+- Google Colab (recommended)
 
 ## Contact
 For more information, contact the dataset creators at josedavid@udea.edu.co.
